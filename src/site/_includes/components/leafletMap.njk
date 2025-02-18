@@ -4,10 +4,10 @@
     // Инициализация карты
     var map = L.map('{{ id }}').setView([{{ lat }}, {{ long }}], {{ defaultZoom }});
 
-    // Локальный путь к изображению карты
-    var imageUrl = "{{ image }}";  // Путь к локальному изображению, передается как параметр
+    // Путь к изображению карты
+    var imageUrl = "{{ image }}";  // Путь к локальному изображению
     var imageBounds = [[{{ bounds[0][0] }} , {{ bounds[0][1] }}], [{{ bounds[1][0] }} , {{ bounds[1][1] }}]];
-    
+
     // Загружаем изображение карты
     L.imageOverlay(imageUrl, imageBounds, {
       interactive: true,
@@ -22,19 +22,4 @@
 
     // Установка параметров зума
     map.setMinZoom({{ minZoom }});
-    map.setMaxZoom({{ maxZoom }});
-
-    // Настройка зума по умолчанию
-    map.setZoom({{ defaultZoom }});
-    
-    // Настройка единиц измерения
-    var scale = {{ scale }};
-    var unit = "{{ unit }}";
-    L.control.scale({ imperial: unit === 'mi' }).addTo(map);
-
-    // Если recenter == true, перерисовываем карту в центр
-    if({{ recenter }}){
-      map.setView([{{ lat }} , {{ long }}], {{ defaultZoom }});
-    }
-  });
-</script>
+    map.setMaxZoom({{
