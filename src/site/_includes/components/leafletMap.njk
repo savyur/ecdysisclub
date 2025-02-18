@@ -1,0 +1,10 @@
+<div id="{{ id }}" style="height: {{ height }}; width: {{ width }};"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var map = L.map('{{ id }}').setView([{{ lat }}, {{ long }}], {{ defaultZoom }});
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+  });
+</script>
